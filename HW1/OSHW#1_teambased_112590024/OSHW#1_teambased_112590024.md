@@ -1,0 +1,78 @@
+# 112590024 邱紹溏 資工三
+
+## 編譯方法
+```
+make
+```
+刪除
+```
+make clean
+```
+
+
+## Ch 2
+
+![2_1](Ch2/2_1.png)
+
+
+![2_2_make](Ch2/2_2_make.png)
+
+
+![2_2_insmod](Ch2/insmod.png)
+
+
+![2_2_rmmod](Ch2/2_2_rmmod.png)
+
+## Ch 3.1
+
+![Ch3_project1_1](Ch3/Ch3_project1_1.png)
+
+![Ch3_project1_2](Ch3/Ch3_project1_2.png)
+
+![Ch3_project1_3](Ch3/Ch3_project1_3.png)
+
+![Ch3_project1_4](Ch3/Ch3_project1_4.png)
+
+## Ch3.2
+
+![Ch3_project2_1](Ch3/Ch3_project2_1.png)
+
+![Ch3_project2_2](Ch3/Ch3_project2_2.png)
+
+## Ch3.3
+
+### Part1  
+
+![Ch3_project3_1](Ch3/Ch3_project3_1.png)
+
+![Ch3_project3_2](Ch3/Ch3_project3_2.png)
+
+### Part2
+
+![Ch3_project3_3](Ch3/Ch3_project3_3.png)
+
+![Ch3_project3_4](Ch3/Ch3_project3_4.png)
+
+![Ch3_project3_5](Ch3/Ch3_project3_5.png)
+
+![Ch3_project3_6](Ch3/Ch3_project3_6.png)
+
+![Ch3_project3_7](Ch3/Ch3_project3_7.png)
+
+## Ch3.4
+
+### Part1
+
+![Ch3_project4_1](Ch3/Ch3_project4_1.png)
+
+![Ch3_project4_2](Ch3/Ch3_project4_2.png)
+
+### Part2
+
+![Ch3_project4_3](Ch3/Ch3_project4_3.png)
+
+![Ch3_project4_4](Ch3/Ch3_project4_4.png)
+
+![Ch3_project4_5](Ch3/Ch3_project4_5.png)
+
+![Ch3_project4_6](Ch3/Ch3_project4_6.png)

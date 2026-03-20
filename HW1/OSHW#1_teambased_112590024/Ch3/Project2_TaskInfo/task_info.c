@@ -9,7 +9,7 @@
 #include <linux/pid.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("CS Student");
+MODULE_AUTHOR("112590024");
 MODULE_DESCRIPTION("Kernel module to display task information via /proc/task_info");
 
 #define PROC_NAME "task_info"
