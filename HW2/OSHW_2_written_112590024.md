@@ -2,6 +2,7 @@
 
 ```
 4.9: Under what circumstances does a multithreaded solution using multiple kernel threads provide better performance than a single-threaded solution on a single-processor system?
+
 ```
 
 ## 4.9
@@ -10,8 +11,11 @@
 ```
 4.14: Using Amdahl’s Law, calculate the speedup gain for the following applications:
 40 percent parallel with (a) eight processing cores and (b) sixteen processing cores
+
 67 percent parallel with (a) two processing cores and (b) four processing cores
+
 90 percent parallel with (a) four processing cores and (b) eight processing cores
+
 ```
 ## 4.14
 ### 40% parallel（S = 0.4）
@@ -52,9 +56,13 @@ $$\frac{1}{(1-0.9)+\frac{0.9}{8}} = \frac{1}{0.2125} \approx 4.71$$
 4.20: Consider a multicore system and a multithreaded program written using the many-to-many threading model
 Let the number of user-level threads in the program be greater than the number of processing cores in the system
 Discuss the performance implications of the following scenarios.
+
 a. The number of kernel threads allocated to the program is less than the number of processing cores.
+
 b. The number of kernel threads allocated to the program is equal to the number of processing cores.
+
 c. The number of kernel threads allocated to the program is greater than the number of processing cores but less than the number of user-level threads.
+
 ```
 
 ## 4.20
@@ -76,9 +84,13 @@ c. The number of kernel threads allocated to the program is greater than the num
 ```
 5.14: Most scheduling algorithms maintain a run queue, which lists processes eligible to run on a processor. 
 On multicore systems, there are two general options: 
+
 (1) each processing core has its own run queue, or 
+
 (2) a single run queue is shared by all processing cores. 
+
 What are the advantages and disadvantages of each of these approaches?
+
 ```
 
 ## 5.14
@@ -108,16 +120,22 @@ What are the advantages and disadvantages of each of these approaches?
 
 ```
 5.17: Consider the following set of processes, with the length of the CPU burst given in milliseconds: 
+
 ```
 ![5_17.png](5_17.png)
 
 ```
 
 The processes are assumed to have arrived in the order P1, P2, P3, P4, P5, all at time 0.
+
 (a) Draw four Gantt charts that illustrate the execution of these processes using the following scheduling algorithms: FCFS, SJF, nonpreemptive priority (a larger priority number implies a higher priority), and RR (quantum = 2)
+
 (b) What is the turnaround time of each process for each of the scheduling algorithms in part (a)?
+
 (c) What is the waiting time of each process for each of these scheduling algorithms?
+
 (d) Which of the algorithms results in the minimum average waiting time (over all processes)?
+
 ```
 
 ## 5.17
