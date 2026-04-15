@@ -16,15 +16,10 @@ int decrease_count(int count)
     pthread_mutex_lock(&mutex);
     //改成 while
     while (available_resources < count) {
-        printf("  [blocked] need %d, only %d available — waiting...\n",
-               count, available_resources);
         pthread_cond_wait(&cond, &mutex); /* atomically releases lock & sleeps */
     }
 
     available_resources -= count;
-    printf("  [acquired] %d resource(s) taken, %d remaining\n",
-           count, available_resources);
-
     pthread_mutex_unlock(&mutex);
     return 0;
 }
@@ -34,9 +29,6 @@ int increase_count(int count)
     pthread_mutex_lock(&mutex);
 
     available_resources += count;
-    printf("  [released] %d resource(s) returned, %d available\n",
-           count, available_resources);
-
     // 打開全每個thread，每一個會重新確認 while
     pthread_cond_broadcast(&cond);
 
