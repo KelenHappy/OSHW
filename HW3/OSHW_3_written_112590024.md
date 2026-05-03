@@ -1,4 +1,4 @@
-# 112590024 邱紹溏 資料庫作業 HW3
+# 112590024 邱紹溏 作業系統作業 HW3
 
 ```
  7.8: The Linux kernel has a policy that a  process cannot hold a spinlock while  attempting to acquire a semaphore. Explain  why this policy is in place.
@@ -35,16 +35,77 @@ If deadlock is controlled by the banker’s algorithm, which of the following ch
 
 ### (a)
 
+絕對安全。資源變多只會讓系統更有餘裕，原本的 safe sequence 還是成立。
 
 ### (b)
 
+不一定安全。少了資源，原本的 safe sequence 可能跑不下去，必須重新跑 Safety Algorithm 確認還能找到 safe sequence 才行。
+
 ### (c)
+
+不一定安全。Max 變大代表 Need 也變大，行程未來可能跟系統要更多資源，必須重新跑 Safety Algorithm 確認系統還在 safe state。
 
 
 ### (d)
 
+安全。但前提是新的 Max 不能比該行程**已經拿到的 Allocation 還少**。Need 變小對系統只有好處。
+
 
 ### (e)
 
+不一定安全。新行程加入時會帶來新的資源需求，必須重新跑 Safety Algorithm，確認加入後系統還能找到 safe sequence。
+
+
 ### (f)
 
+安全。行程離開會把它佔用的資源還給系統，Available 增加，系統只會變得更安全。
+
+***
+
+```
+Answer the following questions using the banker’s algorithm. 
+(a)Illustrate that the system is in a safe state by demonstrating an order in which the threads may complete.
+(d) If a request from thread T3 arrives for (2, 2, 1, 2), can the request be granted immediately? Show the reasons why.
+
+```
+
+## 8.28
+
+![8_28.png](./8_28.png)
+
+![8_28ans.jpg](8_28ans.jpg)
+
+***
+
+```
+8.30: A single-lane bridge connects the two Vermont villages of North Tunbridge and South Tunbridge. Farmers in the two villages use this bridge to deliver their produce to the neighbor town. 
+The bridge can become deadlocked if a northbound and a southbound farmer get on the bridge at the same time. (Vermont farmers are stubborn and are unable to back up.)
+Using semaphores and/or mutex locks, design an algorithm in pseudocode that prevents deadlock. 
+Initially, do not be concerned about starvation (the situation in which northbound farmers prevent southbound farmers from using the bridge, or vice versa).
+```
+
+## 8.30
+
+Pseudocode
+
+``` 
+mutex bridge_lock = 1
+
+northbound_farmer():
+    wait(bridge_lock)
+    cross_bridge()
+    signal(bridge_lock)
+
+southbound_farmer():
+    wait(bridge_lock)
+    cross_bridge()
+    signal(bridge_lock)
+```
+
+一個一個過，用bridge_lock鎖住，來讓一邊先通行。
+
+
+***
+
+
+` `
