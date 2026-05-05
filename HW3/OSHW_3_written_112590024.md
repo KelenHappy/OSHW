@@ -88,9 +88,9 @@ Initially, do not be concerned about starvation (the situation in which northbou
 
 Pseudocode
 
-``` 
-mutex bridge_lock = 1
+``` bash
 
+mutex bridge_lock = 1
 northbound_farmer():
     wait(bridge_lock)
     cross_bridge()
@@ -100,6 +100,7 @@ southbound_farmer():
     wait(bridge_lock)
     cross_bridge()
     signal(bridge_lock)
+    
 ```
 
 一個一個過，用bridge_lock鎖住，來讓一邊先通行。
@@ -107,5 +108,79 @@ southbound_farmer():
 
 ***
 
+```
+9.13: Given six memory partitions of 100 MB, 170 MB, 40 MB, 205 MB, 300 MB, and 185 MB (in order), how would the first-fit, best-fit, and worst-fit algorithms place processes of size 200 MB, 15 MB, 185 MB, 75 MB, 175 MB, and 80 MB (in order)? 
+Indicate which—if any—requests cannot be satisfied. 
+Comment on how efficiently each of the algorithms manages memory. 
+```
 
-` `
+## 9.13
+
+分區大小：100, 170, 40, 205, 300, 185 MB
+
+First-Fit（找第一個夠大的）
+
+
+| Process | Size | 分配到 | 剩餘 |
+|---|---|---|---|
+| P1 | 200 MB | 205 MB | 5 MB |
+| P2 | 15 MB | 100 MB | 85 MB |
+| P3 | 185 MB | 300 MB | 115 MB |
+| P4 | 75 MB | 170 MB | 95 MB |
+| P5 | 175 MB | 185 MB | 10 MB |
+| P6 | 80 MB | 95 MB | 15 MB |
+
+全部滿足。
+
+Best-Fit（找最小但夠大的）
+
+| Process | Size | 分配到 | 剩餘 |
+|---|---|---|---|
+| P1 | 200 MB | 205 MB | 5 MB |
+| P2 | 15 MB | 40 MB | 25 MB |
+| P3 | 185 MB | 300 MB | 115 MB |
+| P4 | 75 MB | 85 MB | 10 MB |
+| P5 | 175 MB | 185 MB | 10 MB |
+| P6 | 80 MB | 115 MB | 35 MB |
+
+全部滿足。
+
+Worst-Fit（找最大的）
+
+| Process | Size | 分配到 | 剩餘 |
+|---|---|---|---|
+| P1 | 200 MB | 300 MB | 100 MB |
+| P2 | 15 MB | 205 MB | 190 MB |
+| P3 | 185 MB | 190 MB | 5 MB |
+| P4 | 75 MB | 185 MB | 110 MB |
+| P5 | 175 MB | 不足，無法分配 | - |
+| P6 | 80 MB | 110 MB | 30 MB |
+
+P5 無法滿足。
+
+效率比較
+
+- **First-Fit**：速度最快，從頭找到第一個夠用的就分配，但前面的分區容易產生碎片
+
+- **Best-Fit**：浪費空間最少，但會產生很多小碎片難以再利用
+
+- **Worst-Fit**：保留較大剩餘空間給之後使用，但本題反而造成 P5 無法分配，效率最差
+
+***
+
+```
+9.24: Consider a computer system with a 32-bit logical address and 8-KB page size. The system supports up to 1 GB of physical memory. How many entries are there in each of the following?
+(a) A conventional, single-level page table
+(b) An inverted page table
+```
+## 9.24
+### (a)
+Page number bits = 32 - 13 = **19 bits**
+
+entries = 2¹⁹ = **524,288 entries**
+
+### (b)
+
+Inverted page table 是以**實體頁框**為單位，每個頁框對應一筆 entry。
+
+Physical frames = 2³⁰ / 2¹³ = 2¹⁷ = **131,072 entries**
