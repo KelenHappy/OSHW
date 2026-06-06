@@ -186,6 +186,7 @@ How does performance depend on the relative sizes of seek time and rotational la
 (b) Read operations on multiple contiguous blocks.
 ```
 
+## 11.21
 ### (a)
 
 RAID 1：兩份鏡像都可以讀，可同時從兩顆硬碟處理不同請求，throughput 較高。
